@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>OLX - Register</title>
 <link rel="stylesheet" href="/css/regsiter.css">
+
 </head>
 <body>
   <main class="card" role="main" aria-labelledby="signup-title">
@@ -18,27 +19,30 @@
       </div>
     </div>
 
-    <!-- UI-only form (no JS / backend) -->
-    <form aria-label="Create account form">
-      <div class="field">
+ 
+    <form aria-label="Create account form" id="form">
+          <div class="field">
         <label for="fullname">Full name</label>
         <input id="fullname" type="text" placeholder="e.g. Ali Khan" />
       </div>
 
       <div class="field">
         <label for="email">Email or Phone</label>
-        <input id="email" type="text" placeholder="you@example.com or 03xx-xxxxxxx" />
+        <input id="inpEmail" type="text" placeholder="you@example.com or 03xx-xxxxxxx" />
       </div>
 
       <div class="row">
         <div class="field half">
           <label for="password">Password</label>
-          <input id="password" type="password" placeholder="Enter your password" />
+          <input id="inpPassword" type="password" placeholder="Enter your password" />
         </div>
         
       </div>
+       <div class="input-group">
+        <p id="upload_widget" class="cloudinary-button">Upload files</p>
+      </div>
 
-      <button type="button" class="btn">Create Account</button>
+      <button type="submit" class="btn">Create Account</button>
 
       
 
@@ -50,5 +54,7 @@
       </div>
     </div>
   </main>
+<script src="https://upload-widget.cloudinary.com/latest/global/all.js" type="text/javascript"></script>  
+  <script type="module" src="./scritp/regester.js"></script>
 </body>
 </html>

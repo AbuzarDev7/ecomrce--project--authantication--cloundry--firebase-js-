@@ -14,14 +14,14 @@
 
     <h2>Login to OLX</h2>
 
-    <form>
+    <form id="form">
       <label>Email or Phone</label>
-      <input type="text" placeholder="Enter your email or phone" />
+      <input type="text" placeholder="Enter your email or phone" id="inpEmail"/>
 
       <label>Password</label>
-      <input type="password" placeholder="Enter your password" />
+      <input type="password" placeholder="Enter your password" id="inpPassword" />
 
-      <button type="button" class="btn-login">Login</button>
+      <button type="submit" class="btn-login">Login</button>
 
       <div class="or">OR</div>
 
@@ -30,10 +30,7 @@
           <img src="https://cdn-icons-png.flaticon.com/512/281/281764.png" alt="">
           Continue with Google
         </div>
-        <div class="social-btn">
-          <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="">
-          Continue with Facebook
-        </div>
+        
       </div>
     </form>
 
@@ -41,5 +38,8 @@
       Don't have an account? <a href="regsiter.html">Create one</a>
     </div>
   </div>
+
+<script type="module" src="/scritp/login.js"></script>
+
 </body>
 </html>
