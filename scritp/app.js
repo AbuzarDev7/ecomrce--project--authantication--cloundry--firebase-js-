@@ -10,7 +10,7 @@ import {
 const userSection = document.querySelector(".user-section");
 const userImg = document.querySelector(".userImg");
 const loginBtn = document.querySelector("#loginBtn");
-const logoutBtn  = document.querySelector("logoutBtn");
+const logoutBtn  = document.querySelector("#logoutBtn");
 onAuthStateChanged(auth, (user) => {
   if (user) {
     const uid = user.uid;
@@ -23,7 +23,7 @@ onAuthStateChanged(auth, (user) => {
 
     
   } else {
-    console.log("logi nahi");
+    console.log("not login");
   }
 });
 
