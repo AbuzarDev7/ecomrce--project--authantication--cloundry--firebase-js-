@@ -420,3 +420,53 @@ footer {
     height: 40px;
   }
 }
+#user-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ---------- User Image ---------- */
+#user-section .userImg {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  object-fit: cover;
+  background: #fff;
+}
+
+/* ---------- Buttons ---------- */
+#user-section .btn {
+  padding: 8px 14px;
+  border-radius: var(--radius);
+  border: 2px solid var(--accent);
+  background: transparent;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+#user-section .btn:hover {
+  background: var(--accent);
+  color: var(--primary);
+}
+
+/* ---------- Hide Logout by default ---------- */
+#logoutBtn {
+  display: none;
+}
+
+/* ---------- Remove link underline ---------- */
+#user-section a {
+  text-decoration: none;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    text-align: center;
+  } 
+}
