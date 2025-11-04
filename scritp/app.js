@@ -9,7 +9,7 @@ import {
   getDocs,
 } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-firestore.js";
 
-const userSection = document.querySelector(".user-section");
+const userSection = document.querySelector("#user-section");
 const userImg = document.querySelector(".userImg");
 const loginBtn = document.querySelector("#loginBtn");
 const logoutBtn = document.querySelector("#logoutBtn");
@@ -21,7 +21,7 @@ onAuthStateChanged(auth, (user) => {
     const uid = user.uid;
     console.log("✅ Logged in UID:", uid);
 
-    userSection.style.display = "block";
+    // userSection.style.display = "block";
     loginBtn.style.display = "none";
     uploadBtn.style.display = "block";
 
