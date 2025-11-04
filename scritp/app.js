@@ -70,7 +70,7 @@ function renderListings(items) {
     const card = document.createElement("div");
     card.classList.add("product-card");
     card.innerHTML = `
-      <img src="${item.imageUrl}" alt="${item.title}" width="220">
+      <img src="${item.imageUrl}" alt="${item.title}" width="350">
       <div class="info">
         <h3>${item.title}</h3>
         <p class="price">$${item.price}</p>

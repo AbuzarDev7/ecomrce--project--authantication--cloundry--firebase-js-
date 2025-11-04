@@ -1,6 +1,9 @@
 import {signInWithEmailAndPassword} from "//www.gstatic.com/firebasejs/12.4.0/firebase-auth.js";
 import { signInWithPopup } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-auth.js";
-import {auth,provider} from "./config.js"
+import {auth,provider,db} from "./config.js"
+import { 
+  doc, setDoc, getDoc 
+} from "https://www.gstatic.com/firebasejs/12.4.0/firebase-firestore.js";
 
 const form = document.querySelector("#form");
 const email = document.querySelector("#inpEmail");
@@ -28,16 +31,31 @@ eve.preventDefault();
 
 const googleBtn = document.querySelector(".social-btn");
 
-googleBtn.addEventListener("click",()=>{
-signInWithPopup(auth, provider)
-  .then((result) => {
-window.location = "index.html"
+googleBtn.addEventListener("click", async () => {
+  try {
+    const result = await signInWithPopup(auth, provider);
     const user = result.user;
-    console.log(user);
-  }).catch((error) => {
+
+    console.log("Google User =>", user);
+
+  
+    const userRef = doc(db, "users", user.uid);
+    const userSnap = await getDoc(userRef);
+
     
-    const errorCode = error.code;
-    const errorMessage = error.message;
-   console.log(errorMessage);
-  });
-})
+    await setDoc(userRef, {
+      uid: user.uid,
+      fullname: user.displayName,
+      email: user.email,
+      profile: user.photoURL || "",
+      provider: "google"
+    }, { merge: true });
+
+    console.log("Google login saved to Firestore ✅");
+
+    window.location = "index.html";
+  } catch (error) {
+    console.error("Google Sign-In Error:", error.message);
+    alert("Google Sign-in failed!");
+  }
+});
