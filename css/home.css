@@ -363,3 +363,60 @@ footer {
     width: 100px;
   }
 }
+/* ============ USER SECTION ============ */
+.user-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+
+.user-section img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  object-fit: cover;
+  background: #fff;
+}
+
+/* ============ BUTTON STYLES ============ */
+.btn {
+  padding: 8px 14px;
+  border-radius: var(--radius);
+  border: 2px solid var(--accent);
+  background: transparent;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn:hover {
+  background: var(--accent);
+  color: var(--primary);
+}
+
+/* ============ LINKS ============ */
+.user-section a {
+  text-decoration: none;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 768px) {
+  .user-section {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .btn {
+    font-size: 13px;
+    padding: 6px 10px;
+  }
+
+  .user-section img {
+    width: 40px;
+    height: 40px;
+  }
+}
