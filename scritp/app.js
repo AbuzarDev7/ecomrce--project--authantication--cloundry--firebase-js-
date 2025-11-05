@@ -9,7 +9,8 @@ import {
   getDocs,
 } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-firestore.js";
 
-
+// const userSection = document.querySelector(".user-section");
+const userImg = document.querySelector(".userImg");
 const loginBtn = document.querySelector("#loginBtn");
 const logoutBtn = document.querySelector("#logoutBtn");
 const uploadBtn = document.querySelector(".uploadBtn");
@@ -22,7 +23,7 @@ onAuthStateChanged(auth, (user) => {
 
     logoutBtn.style.display = "block"
     loginBtn.style.display = "none";
-   
+    uploadBtn.style.display = "block";
 
     getUserProfile(uid);
     getUserListings(uid); // 👈 only user-specific products
