@@ -19,24 +19,24 @@ const productContainer = document.querySelector("#product-container");
 onAuthStateChanged(auth, (user) => {
   if (user) {
     const uid = user.uid;
-    console.log("✅ Logged in UID:", uid);
+    console.log(" Logged in UID:", uid);
 
     logoutBtn.style.display = "block"
     loginBtn.style.display = "none";
     uploadBtn.style.display = "block";
 
     getUserProfile(uid);
-    getUserListings(uid); // 👈 only user-specific products
+    getUserListings(uid); 
 
   } else {
-    console.log("❌ Not logged in");
+    console.log("Not logged in");
     userSection.style.display = "none";
     loginBtn.style.display = "block";
     productContainer.innerHTML = "<p>Please log in to see your products.</p>";
   }
 });
 
-// ✅ User Profile Image
+
 async function getUserProfile(uid) {
   const q = query(collection(db, "users"), where("uid", "==", uid));
   const querySnapshot = await getDocs(q);
@@ -48,9 +48,9 @@ async function getUserProfile(uid) {
   });
 }
 
-// ✅ User-Specific Product Listings
+
 function getUserListings(uid) {
-  const q = query(collection(db, "carts"), where("uid", "==", uid)); // ✅ filter by user
+  const q = query(collection(db, "carts"), where("uid", "==", uid)); 
   onSnapshot(q, (snapshot) => {
     const listings = [];
     snapshot.forEach((doc) => listings.push(doc.data()));
@@ -58,7 +58,7 @@ function getUserListings(uid) {
   });
 }
 
-// ✅ Render Function
+
 function renderListings(items) {
   productContainer.innerHTML = "";
   if (items.length === 0) {
@@ -81,7 +81,7 @@ function renderListings(items) {
   });
 }
 
-// ✅ Logout
+
 logoutBtn.addEventListener("click", () => {
   signOut(auth)
     .then(() => {

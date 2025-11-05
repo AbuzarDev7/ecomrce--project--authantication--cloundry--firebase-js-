@@ -51,7 +51,7 @@ googleBtn.addEventListener("click", async () => {
       provider: "google"
     }, { merge: true });
 
-    console.log("Google login saved to Firestore ✅");
+    console.log("Google login saved to Firestore ");
 
     window.location = "index.html";
   } catch (error) {

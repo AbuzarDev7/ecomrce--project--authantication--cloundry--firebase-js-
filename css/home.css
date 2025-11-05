@@ -22,7 +22,7 @@ body {
   text-decoration: none;
 }
 
-/* ================= NAVBAR ================= */
+ /* NAVBAR */
 nav {
   background: var(--primary);
   color: white;
@@ -43,14 +43,14 @@ nav {
   color: var(--accent);
 }
 
-/* ================= USER SECTION ================= */
+/* USER SECTION  */
 .user-section {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-/* ---------- Upload Button ---------- */
+ /* Upload Button */
 .button {
   width: 45px;
   height: 45px;
@@ -64,6 +64,9 @@ nav {
   overflow: hidden;
   position: relative;
   transition: all 0.3s ease;
+}
+#product-container{
+margin-top: 30px;
 }
 
 .uploadBtn {
@@ -141,7 +144,7 @@ nav {
   font-size: 13px;
 }
 
-/* ---------- User Image ---------- */
+/*  User Imag */
 /* .user-section img {
   width: 40px;
   height: 40px;
@@ -177,7 +180,7 @@ nav {
 a{
   text-decoration: none;
 }
-/* ---------- Buttons (Login / Logout) ---------- */
+/*  Buttons Login  Logout */
 .btn {
   padding: 8px 14px;
   border-radius: var(--radius);
@@ -194,7 +197,7 @@ a{
   color: var(--primary);
 }
 
-/* ================= PRODUCTS ================= */
+/* PRODUCTS */
 .products {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -242,7 +245,7 @@ a{
   font-size: 15px;
 }
 
-/* ================= FOOTER ================= */
+/*FOOTER */
 footer {
   text-align: center;
   padding: 20px;
@@ -251,9 +254,9 @@ footer {
   margin-top: auto;
 }
 
-/* ================= RESPONSIVE ================= */
+/*RESPONSIVE */
 
-/* Laptop / Tablet */
+
 @media (max-width: 992px) {
   nav {
     flex-wrap: wrap;
@@ -318,7 +321,7 @@ footer {
   }
 }
 
-/* Mobile */
+
 @media (max-width: 480px) {
   nav {
     flex-direction: column;
@@ -363,7 +366,7 @@ footer {
     padding: 6px 9px;
   }
 }
-/* ✅ Upload Button Responsive Fix */
+
 @media (max-width: 764px) {
   .uploadBtn {
     display: flex !important;

@@ -14,7 +14,7 @@ const description = document.querySelector("#description");
 const title  = document.querySelector("#title");
 const price = document.querySelector("#price");
 
-// ✅ Check login state
+
 onAuthStateChanged(auth, (user) => {
   if (user) {
     userUID = user.uid;
@@ -24,7 +24,7 @@ onAuthStateChanged(auth, (user) => {
   }
 });
 
-// ✅ Cloudinary widget
+
 var myWidget = cloudinary.createUploadWidget(
   {
     cloudName: 'dfu6dxt8o',
@@ -38,12 +38,11 @@ var myWidget = cloudinary.createUploadWidget(
   }
 );
 
-// ✅ Open upload widget button
+
 document.getElementById("upload_widget").addEventListener("click", function () {
   myWidget.open();
 }, false);
 
-// ✅ Form Submit (Upload Product)
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
 
@@ -75,6 +74,6 @@ form.addEventListener("submit", async (event) => {
     window.location = "index.html"; 
   } catch (error) {
     console.error("Error adding document:", error);
-    alert("❌ Failed to upload product!");
+    alert("Failed to upload product!");
   }
 });
