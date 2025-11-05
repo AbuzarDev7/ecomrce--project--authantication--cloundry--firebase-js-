@@ -21,7 +21,7 @@ onAuthStateChanged(auth, (user) => {
     const uid = user.uid;
     console.log("✅ Logged in UID:", uid);
 
-    loginBtn.style.display = "block"
+    logoutBtn.style.display = "block"
     loginBtn.style.display = "none";
     uploadBtn.style.display = "block";
 
