@@ -38,22 +38,20 @@ googleBtn.addEventListener("click", async () => {
 
     console.log("Google User =>", user);
 
-  
+    // 🔹 Save user in Firestore
     const userRef = doc(db, "users", user.uid);
-    const userSnap = await getDoc(userRef);
-
-    
     await setDoc(userRef, {
       uid: user.uid,
       fullname: user.displayName,
       email: user.email,
       profile: user.photoURL || "",
-      provider: "google"
+      provider: "google",
     }, { merge: true });
 
-    console.log("Google login saved to Firestore ");
+    console.log("Google login saved to Firestore ✅");
 
-    window.location = "index.html";
+    // 🔹 Redirect to index.html
+    window.location.href = "index.html";
   } catch (error) {
     console.error("Google Sign-In Error:", error.message);
     alert("Google Sign-in failed!");

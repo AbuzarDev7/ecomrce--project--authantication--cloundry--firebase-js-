@@ -1,90 +1,125 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OLX</title>
-<link rel="stylesheet" href="./css/home.css">
-<style>
-  #logoutBtn{
-    display: none;
-  }
-  a{
-    text-decoration: none;
-  }
-</style>
+  <title>OLX Clone</title>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- CSS File -->
+  <link rel="stylesheet" href="./css/home.css">
 </head>
 <body>
 
-
+  <!-- ===== Navbar ===== -->
   <nav>
-    <div class="logo">OLX</div>
-    <div class="search-bar">
-    
+    <div class="logo-section">
+      <div class="logo">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvIV2aGioPGBnNrovx6cNrBRbq3nSLDpI1Gpk2tuhzJLx0Si8B-z7P2qBhrrGq7vkJwFQ&usqp=CAU" alt="OLX Logo">
+      </div>
+    <a href="upload.html">
+      <button id="upload-btn" class="upload-btn">
+        <i class="fa-solid fa-upload"></i> Upload Product
+      </button>
+    </a>
+      
     </div>
 
-
+    <!-- ✅ Responsive Toggle -->
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="menu-icon">
+      <i class="fa-solid fa-bars"></i>
+    </label>
 
     <div class="user-section">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0dgcZ7-uE7GeFMYhCYwdl_QBIJAflMqyeNQ&s" class="userImg" alt="User">
-     <a href="login.html">   <button class="btn" id="loginBtn">Login</button></a>
-   <a href="login.html">   <button class="btn" id="logoutBtn">Logout</button></a>
+      <div class="profile" title="Your Profile">
+        <img id="userImg" src="" alt="Profile">
+      </div>
+
+    <a href="login.html">
+        <button class="login-btn" id="#loginBtn">
+        <i class="fa-solid fa-right-to-bracket"></i> Login
+      </button>
+    </a>
+
+      <button class="logout-btn" id="logoutBtn">
+        <i class="fa-solid fa-right-from-bracket"></i> Logout
+      </button>
     </div>
   </nav>
 
-  <div class="uploadBtn">
-<a href="upload.html">
-  <button class="button" >
-  <svg class="svgIcon" viewBox="0 0 384 512">
-    <path
-      d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"
-    ></path>
-  </svg>
-</button>
-</a>
-</div>
-  <section class="products">
-    <div class="product-card">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8QED14Knn8R8K0x4ZJj5fnCuttJXSpsOgaA&s" alt="Car">
-      <div class="product-info">
-        <h3>Used Car</h3>
-        <p class="price">$5000</p>
-        <p>Good condition, low mileage.</p>
+  <!-- ===== Product Section ===== -->
+  <div class="product-container" id="product-cards">
+
+    <!-- Product 1 -->
+    <div class="card">
+      <img src="data:image/jpeg;base64,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" alt="iPhone 13 Pro">
+      <div class="card-content">
+        <h3>iPhone 13 Pro</h3>
+        <div class="price">Rs 235,000</div>
+        <p>PTA approved, 256GB storage, perfect battery health — like new!</p>
+        <a href="#" class="more-btn"><i class="fa-solid fa-circle-info"></i> More Info</a>
       </div>
-    </div>
-    <div class="product-card">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHHFQ48D6JyR_-sQo7xTqe4WKX53f_v6c2jQ&s" alt="Phone">
-      <div class="product-info">
-        <h3>Smartphone</h3>
-        <p class="price">$300</p>
-        <p>Brand new condition, box packed.</p>
+      <div class="card-footer">
+        <div class="location"><i class="fa-solid fa-location-dot"></i> Lahore</div>
+        <i class="fa-regular fa-heart favorite"></i>
       </div>
-    </div>
-    <div class="product-card">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQm8bOHkbNkxlfRJr6E3OnpGxSXdk9Jf5GVOg&s" alt="Bike">
-      <div class="product-info">
-        <h3>Motorbike</h3>
-        <p class="price">$1200</p>
-        <p>Excellent condition, single owner.</p>
-      </div>
-    </div>
-    <div class="product-card">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTe9Jfq9CbQRDfcPOmrshMzVOMLwCMY-Pwd-g&s" alt="Laptop">
-      <div class="product-info">
-        <h3>Laptop</h3>
-        <p class="price">$700</p>
-        <p>Gaming laptop, 16GB RAM, SSD.</p>
-      </div>
-          
     </div>
 
-  </section>
- <div id="product-container" class="grid"></div>
-  <footer>
-    © 2025 OLX Clone UI by Abuzar
-  </footer>
+    <!-- Product 2 -->
+    <div class="card">
+      <img src="https://www.toyota-central.com/Assets/images/Vehicle/CorollaX/Color/SuperWhite.png" alt="Toyota Corolla">
+      <div class="card-content">
+        <h3>Toyota Corolla</h3>
+        <div class="price">Rs 77,235,000</div>
+        <p>2019 model, first owner, mint condition, excellent fuel average.</p>
+        <a href="#" class="more-btn"><i class="fa-solid fa-circle-info"></i> More Info</a>
+      </div>
+      <div class="card-footer">
+        <div class="location"><i class="fa-solid fa-location-dot"></i> Karachi</div>
+        <i class="fa-regular fa-heart favorite"></i>
+      </div>
+    </div>
 
- 
+    <!-- Product 3 -->
+    <div class="card">
+      <img src="https://imgd.aeplcdn.com/424x424/n/cw/ec/194607/sp-125-right-side-view-2.jpeg?isig=0&q=80" alt="Honda SP 125">
+      <div class="card-content">
+        <h3>Honda SP 125</h3>
+        <div class="price">Rs 296,900</div>
+        <p>Honda SP 125 is powered by a 124cc engine, 10.7bhp power, 11L tank.</p>
+        <a href="#" class="more-btn"><i class="fa-solid fa-circle-info"></i> More Info</a>
+      </div>
+      <div class="card-footer">
+        <div class="location"><i class="fa-solid fa-location-dot"></i> Karachi</div>
+        <i class="fa-regular fa-heart favorite"></i>
+      </div>
+    </div>
+
+    <!-- Product 4 -->
+    <div class="card">
+      <img src="https://i.guim.co.uk/img/media/9b5a49469b2b33dd2a26a69d77b73d19e22bf9ce/1043_216_4195_2517/master/4195.jpg?width=445&dpr=1&s=none&crop=none" alt="Macbook M4">
+      <div class="card-content">
+        <h3>Macbook M4 Pavilion Laptop</h3>
+        <div class="price">Rs 284,999</div>
+        <p>8-core GPU, 10-core CPU, 16GB RAM, 256GB SSD, new condition.</p>
+        <a href="#" class="more-btn"><i class="fa-solid fa-circle-info"></i> More Info</a>
+      </div>
+      <div class="card-footer">
+        <div class="location"><i class="fa-solid fa-location-dot"></i> Islamabad</div>
+        <i class="fa-regular fa-heart favorite"></i>
+      </div>
+    </div>
+
+    <div class="product-cards">
+      <div id="card"></div>
+    </div>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script type="module" src="./scritp/app.js"></script>
 </body>
 </html>
